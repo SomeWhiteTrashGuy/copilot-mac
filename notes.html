@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Notes</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #1e1e1e;
+        color: #f0f0f0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      header {
+        padding: 8px 12px;
+        background: #2c2c2c;
+        border-bottom: 1px solid #3a3a3a;
+        font-size: 14px;
+      }
+      textarea {
+        flex: 1;
+        width: 100%;
+        border: none;
+        outline: none;
+        resize: none;
+        padding: 10px;
+        font-size: 14px;
+        line-height: 1.4;
+        background: #1e1e1e;
+        color: #f0f0f0;
+        box-sizing: border-box;
+      }
+      footer {
+        font-size: 11px;
+        padding: 4px 10px;
+        background: #2c2c2c;
+        border-top: 1px solid #3a3a3a;
+        color: #b0b0b0;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      Notes
+    </header>
+    <textarea id="notes" placeholder="Type your notes here..."></textarea>
+    <footer>
+      Notes are stored locally in this app&apos;s storage.
+    </footer>
+    <script>
+      const STORAGE_KEY = 'copilot-notes-content';
+
+      const textarea = document.getElementById('notes');
+
+      // Load saved notes
+      window.addEventListener('DOMContentLoaded', () => {
+        try {
+          const saved = window.localStorage.getItem(STORAGE_KEY);
+          if (saved !== null) {
+            textarea.value = saved;
+          }
+        } catch (e) {
+          console.error('Failed to load saved notes', e);
+        }
+        textarea.focus();
+      });
+
+      // Save on every change
+      textarea.addEventListener('input', () => {
+        try {
+          window.localStorage.setItem(STORAGE_KEY, textarea.value);
+        } catch (e) {
+          console.error('Failed to save notes', e);
+        }
+      });
+    </script>
+  </body>
+</html>
