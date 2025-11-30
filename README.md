@@ -1,4 +1,3 @@
-Here’s a plain-text/Markdown README for **Copilot for Mac**, matching the style of your ChatGPT one. You can copy/paste this directly into GitHub.
 
 ---
 
